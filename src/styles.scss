@@ -93,9 +93,9 @@
     stroke-dashoffset: 0;
   }
 }
-#lineOne {
+#line {
   @include base;
-  animation-delay: 7.5s;
+  animation-delay: 8.85s;
   @include mode;
 }
 @keyframes flash {
@@ -106,9 +106,9 @@
     stroke-dashoffset: 0;
   }
 }
-#line {
-  @
-  animation-delay: 8.85s;
+#lineOne {
+  @include base;
+  animation-delay: 7.5s;
   @include mode;
 }
 @keyframes flash {
