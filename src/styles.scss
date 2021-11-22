@@ -15,6 +15,12 @@
 @mixin mode {
   animation-fill-mode: forwards;
 }
+@mixin visible {
+  opacity: 100;
+}
+@mixin invisible {
+  opacity: 0;
+}
 
 .btn {
   display: block;
@@ -58,11 +64,11 @@
 @keyframes follow {
   from {
     stroke-dashoffset: 1220;
-    opacity: 100;
+    @include visible;
   }
   to {
     stroke-dashoffset: 0;
-    opacity: 100;
+    @include visible;
   }
 }
 #leaf {
@@ -122,15 +128,15 @@
 #nameFade {
   animation: fadeIn 4s;
   animation-delay: 7s;
-  opacity: 0;
+  @include invisible;
   @include mode;
 }
 @keyframes fadeIn {
   from {
-    opacity: 0;
+    @include invisible;
   }
   to {
-    opacity: 100;
+    @include visible;
   }
 }
 #pinkLine {
@@ -139,11 +145,11 @@
 @keyframes follow {
   from {
     stroke-dashoffset: 1220;
-    opacity: 100;
+    @include visible;
   }
   to {
     stroke-dashoffset: 0;
-    opacity: 100;
+    @include visible;
   }
 }
 #rose {
