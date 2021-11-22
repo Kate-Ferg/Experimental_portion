@@ -1,4 +1,20 @@
 @import url("https://fonts.googleapis.com/css?family=Gayathri:400,700|Playfair+Display:400,700&display=swap");
+@mixin base {
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: flash 3s linear alternate;
+}
+@mixin line {
+  stroke-dasharray: 1230;
+  stroke-dashoffset: 1220;
+  animation: follow 8s linear infinite;
+  animation-delay: 11s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+@mixin mode {
+  animation-fill-mode: forwards;
+}
 
 .btn {
   display: block;
@@ -37,12 +53,7 @@
   }
 }
 #greenLine {
-  stroke-dasharray: 1230;
-  stroke-dashoffset: 1220;
-  animation: follow 8s linear infinite;
-  animation-delay: 11s;
-  animation-fill-mode: forwards;
-  opacity: 0;
+  @include line;
 }
 @keyframes follow {
   from {
@@ -55,11 +66,9 @@
   }
 }
 #leaf {
-  stroke-dasharray: 500;
-  stroke-dashoffset: 500;
-  animation: flash 3s linear alternate;
+  @include base;
   animation-delay: 9.8s;
-  animation-fill-mode: forwards;
+  @include mode;
 }
 @keyframes flash {
   from {
@@ -74,7 +83,7 @@
   stroke-dashoffset: 600;
   animation: dash 7s linear alternate;
   animation-delay: 5.2s;
-  animation-fill-mode: forwards;
+  @include mode;
 }
 @keyframes dash {
   from {
@@ -85,11 +94,9 @@
   }
 }
 #lineOne {
-  stroke-dasharray: 500;
-  stroke-dashoffset: 500;
-  animation: flash 3s linear alternate;
+  @include base
   animation-delay: 7.5s;
-  animation-fill-mode: forwards;
+  @include mode;
 }
 @keyframes flash {
   from {
@@ -100,11 +107,9 @@
   }
 }
 #line {
-  stroke-dasharray: 500;
-  stroke-dashoffset: 500;
-  animation: flash 3s linear alternate;
+  @
   animation-delay: 8.85s;
-  animation-fill-mode: forwards;
+  @include mode;
 }
 @keyframes flash {
   from {
@@ -118,7 +123,7 @@
   animation: fadeIn 4s;
   animation-delay: 7s;
   opacity: 0;
-  animation-fill-mode: forwards;
+  @include mode;
 }
 @keyframes fadeIn {
   from {
@@ -129,12 +134,7 @@
   }
 }
 #pinkLine {
-  stroke-dasharray: 1230;
-  stroke-dashoffset: 1220;
-  animation: follow 8s linear infinite;
-  animation-delay: 11s;
-  animation-fill-mode: forwards;
-  opacity: 0;
+  @include line;
 }
 @keyframes follow {
   from {
@@ -151,7 +151,7 @@
   stroke-dashoffset: 500;
   animation: flash 8s linear alternate;
   animation-delay: 3s;
-  animation-fill-mode: forwards;
+  @include mode;
 }
 @keyframes flash {
   from {
@@ -167,7 +167,7 @@
   stroke-dashoffset: 100;
   animation: grow 8s linear alternate;
   animation-delay: 1s;
-  animation-fill-mode: forwards;
+  @include mode;
 }
 @keyframes grow {
   from {
