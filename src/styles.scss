@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Gayathri:400,700|Playfair+Display:400,700&display=swap");
 @mixin base {
   stroke-dasharray: 500;
-  stroke-dashoffset: 500;
+  @include offsetOne;
   animation: flash 3s linear alternate;
 }
 @mixin line {
@@ -9,8 +9,8 @@
   stroke-dashoffset: 1220;
   animation: follow 8s linear infinite;
   animation-delay: 11s;
-  animation-fill-mode: forwards;
-  opacity: 0;
+  @include mode;
+  @include invisible;
 }
 @mixin mode {
   animation-fill-mode: forwards;
@@ -20,6 +20,12 @@
 }
 @mixin invisible {
   opacity: 0;
+}
+@mixin offsetOne {
+  stroke-dashoffset: 500;
+}
+@mixin offsetTwo {
+  stroke-dashoffset: 0;
 }
 
 .btn {
@@ -67,7 +73,7 @@
     @include visible;
   }
   to {
-    stroke-dashoffset: 0;
+    @include offsetTwo;
     @include visible;
   }
 }
@@ -78,10 +84,10 @@
 }
 @keyframes flash {
   from {
-    stroke-dashoffset: 500;
+    @include offsetOne;
   }
   to {
-    stroke-dashoffset: 0;
+    @include offsetTwo;
   }
 }
 #letter {
@@ -96,7 +102,7 @@
     stroke-dashoffset: 600;
   }
   to {
-    stroke-dashoffset: 0;
+    @include offsetTwo;
   }
 }
 #line {
@@ -106,10 +112,10 @@
 }
 @keyframes flash {
   from {
-    stroke-dashoffset: 500;
+    @include offsetOne;
   }
   to {
-    stroke-dashoffset: 0;
+    @include offsetTwo;
   }
 }
 #lineOne {
@@ -119,10 +125,10 @@
 }
 @keyframes flash {
   from {
-    stroke-dashoffset: 500;
+    @include offsetOne;
   }
   to {
-    stroke-dashoffset: 0;
+    @include offsetTwo;
   }
 }
 #nameFade {
@@ -148,23 +154,23 @@
     @include visible;
   }
   to {
-    stroke-dashoffset: 0;
+    @include offsetTwo;
     @include visible;
   }
 }
 #rose {
   stroke-dasharray: 500;
-  stroke-dashoffset: 500;
+  @include offsetOne;
   animation: flash 8s linear alternate;
   animation-delay: 3s;
   @include mode;
 }
 @keyframes flash {
   from {
-    stroke-dashoffset: 500;
+    @include offsetOne;
   }
   to {
-    stroke-dashoffset: 0;
+    @include offsetTwo;
   }
 }
 
@@ -177,10 +183,10 @@
 }
 @keyframes grow {
   from {
-    stroke-dashoffset: 0;
+    @include offsetTwo;
   }
   to {
-    stroke-dashoffset: 500;
+    @include offsetOne;
   }
 }
 svg {
