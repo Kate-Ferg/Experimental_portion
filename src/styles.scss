@@ -94,7 +94,7 @@
   }
 }
 #lineOne {
-  @include base
+  @include base;
   animation-delay: 7.5s;
   @include mode;
 }
