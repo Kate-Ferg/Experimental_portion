@@ -21,22 +21,6 @@
   background-color: #b2a78f;
   color: #f1eeea;
 }
-#letter {
-  stroke-dasharray: 600;
-  stroke-dashoffset: 600;
-  animation: dash 7s linear alternate;
-  animation-delay: 5.2s;
-  animation-fill-mode: forwards;
-}
-@keyframes dash {
-  from {
-    stroke-dashoffset: 600;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
 #green {
   animation-duration: 3s;
   animation-name: slidein;
@@ -52,7 +36,24 @@
     transform-origin: 20% 40%;
   }
 }
-
+#greenLine {
+  stroke-dasharray: 1230;
+  stroke-dashoffset: 1220;
+  animation: follow 8s linear infinite;
+  animation-delay: 11s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+@keyframes follow {
+  from {
+    stroke-dashoffset: 1220;
+    opacity: 100;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 100;
+  }
+}
 #leaf {
   stroke-dasharray: 500;
   stroke-dashoffset: 500;
@@ -68,35 +69,19 @@
     stroke-dashoffset: 0;
   }
 }
-#rose {
-  stroke-dasharray: 500;
-  stroke-dashoffset: 500;
-  animation: flash 8s linear alternate;
-  animation-delay: 3s;
+#letter {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation: dash 7s linear alternate;
+  animation-delay: 5.2s;
   animation-fill-mode: forwards;
 }
-@keyframes flash {
+@keyframes dash {
   from {
-    stroke-dashoffset: 500;
+    stroke-dashoffset: 600;
   }
   to {
     stroke-dashoffset: 0;
-  }
-}
-
-#rose-stem {
-  stroke-dasharray: 220;
-  stroke-dashoffset: 100;
-  animation: grow 8s linear alternate;
-  animation-delay: 1s;
-  animation-fill-mode: forwards;
-}
-@keyframes grow {
-  from {
-    stroke-dashoffset: 0;
-  }
-  to {
-    stroke-dashoffset: 500;
   }
 }
 #lineOne {
@@ -161,22 +146,35 @@
     opacity: 100;
   }
 }
-#greenLine {
-  stroke-dasharray: 1230;
-  stroke-dashoffset: 1220;
-  animation: follow 8s linear infinite;
-  animation-delay: 11s;
+#rose {
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: flash 8s linear alternate;
+  animation-delay: 3s;
   animation-fill-mode: forwards;
-  opacity: 0;
 }
-@keyframes follow {
+@keyframes flash {
   from {
-    stroke-dashoffset: 1220;
-    opacity: 100;
+    stroke-dashoffset: 500;
   }
   to {
     stroke-dashoffset: 0;
-    opacity: 100;
+  }
+}
+
+#rose-stem {
+  stroke-dasharray: 220;
+  stroke-dashoffset: 100;
+  animation: grow 8s linear alternate;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+@keyframes grow {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 500;
   }
 }
 svg {
